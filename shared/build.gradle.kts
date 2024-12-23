@@ -43,7 +43,12 @@ kotlin {
             }
         }
     }
-    
+
+    js(IR) {
+        browser()
+        binaries.library()
+    }
+
     sourceSets {
         commonMain.dependencies {
             implementation(libs.ktor.client.core)
@@ -64,7 +69,7 @@ kotlin {
             implementation(libs.ktor.cio)
         }
 
-        jsMain.dependencies {
+        wasmJsMain.dependencies {
             implementation(libs.ktor.js)
         }
     }
