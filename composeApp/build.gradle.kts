@@ -26,7 +26,6 @@ kotlin {
                 outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
                         add(rootDirPath)
                         add(projectDirPath)
                     }
@@ -47,7 +46,6 @@ kotlin {
     }
 
     sourceSets {
-        
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -58,7 +56,7 @@ kotlin {
 
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)

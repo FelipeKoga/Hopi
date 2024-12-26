@@ -24,7 +24,7 @@ class MmoRepository(
 
     fun getAll() = flow {
         val response = client.get("$BASE_URL/games") {
-            header("x-rapidapi-key", "")
+            header("x-rapidapi-key", "7126520005mshb85f455e1211502p1caf4cjsn160caf6afcef")
         }
         emit(response.body<List<Game>>())
     }

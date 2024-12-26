@@ -13,7 +13,7 @@ val module = module {
 }
 
 class HomeViewModel(
-    private val repository: MmoRepository
+    repository: MmoRepository
 ) : ViewModel() {
 
     val games = repository.getAll().stateIn(
