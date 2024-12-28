@@ -9,6 +9,8 @@ import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
+const val BASE_URL = "https://mmo-games.p.rapidapi.com"
+
 fun initKoin(module: Module) {
     startKoin {
         modules(

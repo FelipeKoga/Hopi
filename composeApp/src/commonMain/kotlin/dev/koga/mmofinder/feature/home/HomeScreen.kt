@@ -25,7 +25,11 @@ import dev.koga.mmofinder.Game
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, viewModel: HomeViewModel) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel,
+    onGameClicked: (Game) -> Unit
+) {
     val games by viewModel.games.collectAsStateWithLifecycle()
 
     Scaffold(
@@ -45,7 +49,10 @@ fun HomeScreen(modifier: Modifier = Modifier, viewModel: HomeViewModel) {
             items(games) { game ->
                 GameCard(
                     modifier = modifier,
-                    game = game
+                    game = game,
+                    onClick = {
+                        onGameClicked(game)
+                    }
                 )
             }
         }
@@ -53,8 +60,8 @@ fun HomeScreen(modifier: Modifier = Modifier, viewModel: HomeViewModel) {
 }
 
 @Composable
-fun GameCard(modifier: Modifier = Modifier, game: Game) {
-    Card(modifier = modifier.fillMaxWidth(), onClick = {}) {
+fun GameCard(modifier: Modifier = Modifier, game: Game, onClick: () -> Unit) {
+    Card(modifier = modifier.fillMaxWidth(), onClick = onClick) {
         Row(modifier = Modifier.fillMaxWidth()) {
             AsyncImage(
                 model = game.thumbnail,
