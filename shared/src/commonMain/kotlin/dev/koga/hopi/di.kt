@@ -1,4 +1,4 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

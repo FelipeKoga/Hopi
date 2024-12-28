@@ -1,4 +1,4 @@
-package dev.koga.mmofinder.feature.home
+package dev.koga.hopi.feature.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
-import dev.koga.mmofinder.Game
+import dev.koga.hopi.Game
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,7 +36,7 @@ fun HomeScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text("MMO Finder")
+                    Text("Hopi")
                 }
             )
         }

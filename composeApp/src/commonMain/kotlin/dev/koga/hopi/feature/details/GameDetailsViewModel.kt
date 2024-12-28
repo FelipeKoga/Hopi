@@ -1,13 +1,12 @@
-package dev.koga.mmofinder.feature.details
+package dev.koga.hopi.feature.details
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.toRoute
-import dev.koga.mmofinder.Game
-import dev.koga.mmofinder.MmoRepository
-import dev.koga.mmofinder.Route
+import dev.koga.hopi.Game
+import dev.koga.hopi.MmoRepository
+import dev.koga.hopi.Route
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.mapLatest

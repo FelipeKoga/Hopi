@@ -1,14 +1,14 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.CanvasBasedWindow
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    initKoin(module = dev.koga.mmofinder.feature.home.module)
+    initKoin(module = dev.koga.hopi.feature.home.module)
 
     CanvasBasedWindow(
-        title = "MMO Finder",
+        title = "Hopi",
         canvasElementId = "viewport-container",
         applyDefaultStyles = false,
     ) {

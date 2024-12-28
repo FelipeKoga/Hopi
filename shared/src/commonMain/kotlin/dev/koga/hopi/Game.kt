@@ -1,4 +1,4 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

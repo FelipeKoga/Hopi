@@ -1,4 +1,4 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

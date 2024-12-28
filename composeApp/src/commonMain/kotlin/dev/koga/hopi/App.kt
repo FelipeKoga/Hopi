@@ -1,12 +1,12 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.koga.mmofinder.feature.details.GameDetailsScreen
-import dev.koga.mmofinder.feature.home.HomeScreen
+import dev.koga.hopi.feature.details.GameDetailsScreen
+import dev.koga.hopi.feature.home.HomeScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 

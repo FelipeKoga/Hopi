@@ -1,10 +1,8 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
-import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.request.get
-import io.ktor.client.request.header
 import kotlinx.coroutines.flow.flow
 
 

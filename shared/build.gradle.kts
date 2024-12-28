@@ -74,7 +74,7 @@ kotlin {
 
 
 android {
-    namespace = "dev.koga.mmofinder.shared"
+    namespace = "dev.koga.hopi.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

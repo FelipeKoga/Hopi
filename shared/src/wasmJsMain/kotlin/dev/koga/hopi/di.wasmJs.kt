@@ -1,4 +1,4 @@
-package dev.koga.mmofinder
+package dev.koga.hopi
 
 import io.ktor.client.engine.js.Js
 import org.koin.core.module.Module

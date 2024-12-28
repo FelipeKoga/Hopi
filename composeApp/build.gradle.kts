@@ -84,11 +84,11 @@ kotlin {
 }
 
 android {
-    namespace = "dev.koga.mmofinder"
+    namespace = "dev.koga.hopi"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "dev.koga.mmofinder"
+        applicationId = "dev.koga.hopi"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1

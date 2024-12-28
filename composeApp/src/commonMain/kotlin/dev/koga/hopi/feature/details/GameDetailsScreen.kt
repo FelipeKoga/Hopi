@@ -1,4 +1,4 @@
-package dev.koga.mmofinder.feature.details
+package dev.koga.hopi.feature.details
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
