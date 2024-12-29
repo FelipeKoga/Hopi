@@ -139,7 +139,6 @@ fun GamesScreen(
                     )
                 }
             }
-
         }
     }
 }
