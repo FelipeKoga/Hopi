@@ -2,13 +2,10 @@
 
 package dev.koga.hopi
 
-import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -18,7 +15,6 @@ import dev.koga.hopi.feature.game_details.GameDetailsScreen
 import dev.koga.hopi.feature.games.GamesScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinNavViewModel
-import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
 @Composable
@@ -53,7 +49,7 @@ fun App() {
                     targetOffsetX = { fullWidth -> fullWidth },
                     animationSpec = tween(durationMillis = 500)
                 )
-            }
+            },
         ) {
             composable<Route.Games> {
                 GamesScreen(
@@ -69,7 +65,7 @@ fun App() {
 
             composable<Route.GameDetails> {
                 GameDetailsScreen(
-                    viewModel = koinViewModel(),
+                    viewModel = koinNavViewModel(),
                     onBack = navController::popBackStack
                 )
             }

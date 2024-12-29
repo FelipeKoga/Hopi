@@ -20,7 +20,7 @@ import compose.icons.tablericons.AlertCircle
 
 @Composable
 fun ErrorUI(modifier: Modifier = Modifier, onTryAgain: () -> Unit) {
-    Box(modifier = modifier.fillMaxSize()) {
+    Box(modifier = modifier) {
         Column(
             modifier = Modifier.align(Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally

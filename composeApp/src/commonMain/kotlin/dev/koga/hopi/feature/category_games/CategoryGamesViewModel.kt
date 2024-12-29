@@ -9,6 +9,7 @@ import dev.koga.hopi.model.Category
 import dev.koga.hopi.model.Resource
 import dev.koga.hopi.model.SortOptions
 import dev.koga.hopi.repository.GameRepository
+import dev.koga.hopi.util.ext.WhileViewSubscribed
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -46,7 +47,7 @@ class CategoryGamesViewModel(
 
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(),
+        started = SharingStarted.WhileViewSubscribed,
         initialValue = CategoryGamesUiState(
             category = category,
             sortOptions = sortOptions.value,

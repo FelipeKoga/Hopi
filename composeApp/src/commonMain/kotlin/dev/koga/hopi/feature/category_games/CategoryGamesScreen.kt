@@ -135,8 +135,17 @@ fun CategoryGamesScreen(
             }
 
             when (uiState.gamesUiState) {
-                Resource.Error -> item { ErrorUI(onTryAgain = {}) }
-                Resource.Loading -> item { LoadingUI() }
+                Resource.Error -> item {
+                    ErrorUI(
+                        modifier = Modifier.fillParentMaxHeight(),
+                        onTryAgain = {}
+                    )
+                }
+
+                Resource.Loading -> item {
+                    LoadingUI(modifier = Modifier.fillParentMaxHeight())
+                }
+
                 is Resource.Success -> items(
                     (uiState.gamesUiState as? Resource.Success)?.data ?: emptyList()
                 ) { game ->

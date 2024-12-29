@@ -59,6 +59,7 @@ import dev.koga.hopi.feature.game_details.component.ScreenshotsUI
 import dev.koga.hopi.feature.game_details.component.toList
 import dev.koga.hopi.feature.games.GamesUiState
 import dev.koga.hopi.model.GameDetails
+import dev.koga.hopi.model.Resource
 import dev.koga.hopi.shared_ui.ErrorUI
 import dev.koga.hopi.shared_ui.LoadingUI
 import dev.koga.hopi.util.ext.fullLine
@@ -98,9 +99,14 @@ fun GameDetailsScreen(
             contentKey = { gameState::class }
         ) { target ->
             when (target) {
-                GameDetailsUiState.Loading -> LoadingUI()
-
                 GameDetailsUiState.Error -> ErrorUI(onTryAgain = {})
+
+                GameDetailsUiState.Error -> ErrorUI(
+                    modifier = Modifier.fillMaxSize(),
+                    onTryAgain = {}
+                )
+
+                GameDetailsUiState.Loading -> LoadingUI(modifier = Modifier.fillMaxSize())
 
                 is GameDetailsUiState.Success -> {
                     val game = (gameState as GameDetailsUiState.Success).game

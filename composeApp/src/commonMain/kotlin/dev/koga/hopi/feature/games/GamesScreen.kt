@@ -127,8 +127,17 @@ fun GamesScreen(
             }
 
             when (uiState.data) {
-                Resource.Error -> item { ErrorUI(onTryAgain = {}) }
-                Resource.Loading -> item { LoadingUI() }
+                Resource.Error -> item {
+                    ErrorUI(
+                        modifier = Modifier.fillParentMaxHeight(),
+                        onTryAgain = {}
+                    )
+                }
+
+                Resource.Loading -> item {
+                    LoadingUI(modifier = Modifier.fillParentMaxHeight())
+                }
+
                 is Resource.Success -> items(
                     (uiState.data as? Resource.Success)?.data ?: emptyList()
                 ) { game ->

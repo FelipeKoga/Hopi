@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dev.koga.hopi.model.Resource
 import dev.koga.hopi.model.SortOptions
 import dev.koga.hopi.repository.GameRepository
+import dev.koga.hopi.util.ext.WhileViewSubscribed
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -32,7 +33,7 @@ class GamesViewModel(
         )
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(),
+        started = SharingStarted.WhileViewSubscribed,
         initialValue = GamesUiState(sortOptions = sortOptions.value, data = Resource.Loading)
     )
 

@@ -23,8 +23,6 @@ class GameRepository(
     ) = flow {
         emit(Resource.Loading)
 
-        println("Category $category")
-
         val response = try {
             val response = client.get("$BASE_URL/games") {
                 category?.let {

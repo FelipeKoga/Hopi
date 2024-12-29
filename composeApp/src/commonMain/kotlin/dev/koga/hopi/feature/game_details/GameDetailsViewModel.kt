@@ -10,6 +10,7 @@ import dev.koga.hopi.repository.GameRepository
 import dev.koga.hopi.Route
 import dev.koga.hopi.model.GameDetails
 import dev.koga.hopi.model.Resource
+import dev.koga.hopi.util.ext.WhileViewSubscribed
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.mapLatest
@@ -30,7 +31,7 @@ class GameDetailsViewModel(
         }
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(),
+        started = SharingStarted.WhileViewSubscribed,
         initialValue = GameDetailsUiState.Loading
     )
 
