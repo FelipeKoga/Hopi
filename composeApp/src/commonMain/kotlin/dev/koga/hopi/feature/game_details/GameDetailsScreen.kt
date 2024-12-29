@@ -20,11 +20,20 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Badge
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonColors
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,12 +42,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowBack
+import compose.icons.tablericons.ArrowLeft
 import dev.koga.hopi.feature.game_details.component.GameInfoCard
 import dev.koga.hopi.feature.game_details.component.ScreenshotsUI
 import dev.koga.hopi.feature.game_details.component.toList
@@ -47,17 +62,35 @@ import dev.koga.hopi.model.GameDetails
 import dev.koga.hopi.shared_ui.ErrorUI
 import dev.koga.hopi.shared_ui.LoadingUI
 import dev.koga.hopi.util.ext.fullLine
+import dev.koga.hopi.util.ext.zero
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameDetailsScreen(
     viewModel: GameDetailsViewModel,
     onBack: () -> Unit,
 ) {
     val gameState by viewModel.gameState.collectAsStateWithLifecycle()
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
     Scaffold(
-        contentWindowInsets = WindowInsets(0, 0, 0, 0)
+        contentWindowInsets = WindowInsets.zero,
+        topBar = {
+            TopAppBar(
+                title = {},
+                scrollBehavior = scrollBehavior,
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(TablerIcons.ArrowLeft, "back")
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background,
+                    scrolledContainerColor = MaterialTheme.colorScheme.background,
+                )
+            )
+        }
     ) { contentPadding ->
         AnimatedContent(
             modifier = Modifier.padding(contentPadding),
@@ -75,14 +108,12 @@ fun GameDetailsScreen(
                     val minimumSystemRequirements = game.minimumSystemRequirements.toList()
 
                     LazyVerticalGrid(
+                        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
                         columns = GridCells.Fixed(2),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                         verticalArrangement = Arrangement.spacedBy(12.dp),
-                        contentPadding = PaddingValues(12.dp),
+                        contentPadding = PaddingValues(horizontal = 12.dp),
                     ) {
-                        fullLine {
-                            Spacer(modifier = Modifier.statusBarsPadding())
-                        }
 
                         fullLine {
                             GameHeaderUI(game)
@@ -149,10 +180,9 @@ fun GameHeaderUI(game: GameDetails) {
         AsyncImage(
             model = game.thumbnail,
             contentDescription = null,
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
-                .defaultMinSize(minHeight = 196.dp)
                 .clip(RoundedCornerShape(12.dp)),
             clipToBounds = false,
         )

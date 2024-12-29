@@ -5,14 +5,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Badge
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -40,6 +43,7 @@ import dev.koga.hopi.feature.games.bottomsheet.CategoriesBottomSheet
 import dev.koga.hopi.shared_ui.SortOptionsBottomSheet
 import dev.koga.hopi.feature.games.components.GameCard
 import dev.koga.hopi.model.Category
+import dev.koga.hopi.model.Resource
 import dev.koga.hopi.model.SimpleGame
 import dev.koga.hopi.model.SortOptions
 import dev.koga.hopi.shared_ui.ErrorUI
@@ -73,6 +77,7 @@ fun GamesScreen(
 
     if (openSortOptionsBottomSheet) {
         SortOptionsBottomSheet(
+            sortOptions = uiState.sortOptions,
             onDismissRequest = {
                 openSortOptionsBottomSheet = false
             },
@@ -87,70 +92,54 @@ fun GamesScreen(
         modifier = Modifier.fillMaxSize(),
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
-            MediumTopAppBar(
+            CenterAlignedTopAppBar(
                 scrollBehavior = scrollBehavior,
                 title = {
-                    Column {
-                        Text(
-                            text = "Games",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                color = MaterialTheme.colorScheme.primary,
-                                fontWeight = FontWeight.Bold
-                            )
+                    Text(
+                        text = "Games",
+                        style = MaterialTheme.typography.headlineSmall.copy(
+                            color = MaterialTheme.colorScheme.primary,
+                            fontWeight = FontWeight.Bold
                         )
-
-                        Text(
-                            text = "Discover the best games available right now",
-                            style = MaterialTheme.typography.bodyMedium.copy(
-                                color = MaterialTheme.colorScheme.onBackground,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                        )
-                    }
-
+                    )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent,
-                    scrolledContainerColor = MaterialTheme.colorScheme.surface,
+                    containerColor = MaterialTheme.colorScheme.background,
+                    scrolledContainerColor = MaterialTheme.colorScheme.background,
                 )
             )
         }
     ) { contentPadding ->
-        AnimatedContent(
-            targetState = uiState,
-            contentKey = { uiState::class },
-            modifier = Modifier.padding(contentPadding)
-        ) { target ->
-            when (target) {
-                GamesUiState.Error -> ErrorUI(onTryAgain = {})
+        LazyColumn(
+            modifier = Modifier
+                .padding(contentPadding)
+                .nestedScroll(scrollBehavior.nestedScrollConnection)
+                .fillMaxSize(),
+            contentPadding = PaddingValues(horizontal = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp)
+        ) {
+            item {
+                GamesFilterOptions(
+                    sortOptions = uiState.sortOptions,
+                    onBrowseCategories = { openCategoriesBottomSheet = true },
+                    onOpenSortOptions = { openSortOptionsBottomSheet = true }
+                )
+            }
 
-                GamesUiState.Loading -> LoadingUI()
-
-                is GamesUiState.Success -> {
-                    LazyColumn(
-                        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-                        contentPadding = PaddingValues(horizontal = 24.dp),
-                        verticalArrangement = Arrangement.spacedBy(24.dp)
-                    ) {
-                        item {
-                            GamesFilterOptions(
-                                sortOptions = target.sortOptions,
-                                onBrowseCategories = { openCategoriesBottomSheet = true },
-                                onOpenSortOptions = { openSortOptionsBottomSheet = true }
-                            )
-                        }
-
-                        items(target.games) { game ->
-                            GameCard(
-                                modifier = modifier,
-                                game = game,
-                                onClick = { onGameClicked(game) }
-                            )
-                        }
-                    }
-
+            when (uiState.data) {
+                Resource.Error -> item { ErrorUI(onTryAgain = {}) }
+                Resource.Loading -> item { LoadingUI() }
+                is Resource.Success -> items(
+                    (uiState.data as? Resource.Success)?.data ?: emptyList()
+                ) { game ->
+                    GameCard(
+                        modifier = modifier,
+                        game = game,
+                        onClick = { onGameClicked(game) }
+                    )
                 }
             }
+
         }
     }
 }

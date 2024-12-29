@@ -26,15 +26,14 @@ class GamesViewModel(
         sortOptions,
         gamesResource,
     ) { sortOptions, gamesResource ->
-        when (gamesResource) {
-            is Resource.Success -> GamesUiState.Success(gamesResource.data, sortOptions)
-            Resource.Error -> GamesUiState.Error
-            Resource.Loading -> GamesUiState.Loading
-        }
+        GamesUiState(
+            sortOptions = sortOptions,
+            data = gamesResource
+        )
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),
-        initialValue = GamesUiState.Loading
+        initialValue = GamesUiState(sortOptions = sortOptions.value, data = Resource.Loading)
     )
 
     fun onSubmitSortOptions(options: SortOptions) {

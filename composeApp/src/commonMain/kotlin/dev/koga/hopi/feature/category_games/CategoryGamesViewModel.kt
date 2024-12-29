@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dev.koga.hopi.Route
-import dev.koga.hopi.feature.games.GamesUiState
 import dev.koga.hopi.model.Category
 import dev.koga.hopi.model.Resource
 import dev.koga.hopi.model.SortOptions
@@ -28,7 +27,12 @@ class CategoryGamesViewModel(
     private val key = savedStateHandle.toRoute<Route.CategoryGames>().categoryKey
     private val category = Category.all.first { category -> category.key == key }
     private val sortOptions = MutableStateFlow(SortOptions(platform = null, order = null))
-    private val gamesResource = sortOptions.flatMapLatest { repository.getAll(sortOptions = it) }
+    private val gamesResource = sortOptions.flatMapLatest {
+        repository.getAll(
+            category = category,
+            sortOptions = it
+        )
+    }
 
     val uiState = combine(
         sortOptions,
@@ -36,24 +40,21 @@ class CategoryGamesViewModel(
     ) { sortOptions, gamesResource ->
         CategoryGamesUiState(
             category = category,
-            gamesUiState = when (gamesResource) {
-                is Resource.Success -> GamesUiState.Success(gamesResource.data, sortOptions)
-                Resource.Error -> GamesUiState.Error
-                Resource.Loading -> GamesUiState.Loading
-            }
+            sortOptions = sortOptions,
+            gamesUiState = gamesResource
         )
 
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),
-        initialValue = CategoryGamesUiState(category, GamesUiState.Loading)
+        initialValue = CategoryGamesUiState(
+            category = category,
+            sortOptions = sortOptions.value,
+            gamesUiState = Resource.Loading
+        )
     )
 
     fun onSubmitSortOptions(options: SortOptions) {
         sortOptions.update { options }
-    }
-
-    fun refresh() {
-        sortOptions.update { it.copy() }
     }
 }

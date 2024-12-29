@@ -39,14 +39,15 @@ import dev.koga.hopi.model.OrderOption
 import dev.koga.hopi.model.Platform
 import dev.koga.hopi.model.SortOptions
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SortOptionsBottomSheet(
+    sortOptions: SortOptions,
     onDismissRequest: () -> Unit,
     onSubmit: (SortOptions) -> Unit,
 ) {
-    var selectedPlatform by remember { mutableStateOf<Platform?>(null) }
-    var selectedOrder by remember { mutableStateOf<OrderOption?>(null) }
+    var selectedPlatform by remember { mutableStateOf(sortOptions.platform) }
+    var selectedOrder by remember { mutableStateOf(sortOptions.order) }
 
     fun updateOrderOption(orderOption: OrderOption) {
         selectedOrder = if (orderOption == selectedOrder) null else orderOption

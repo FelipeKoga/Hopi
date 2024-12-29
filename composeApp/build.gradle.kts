@@ -71,6 +71,7 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.navigation)
             implementation(libs.coil.compose)
             implementation(libs.coil.core)
             implementation(libs.coil.cache.controls)

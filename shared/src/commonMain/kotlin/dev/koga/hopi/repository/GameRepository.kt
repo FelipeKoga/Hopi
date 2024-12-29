@@ -10,6 +10,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
+import io.ktor.client.statement.request
 import kotlinx.coroutines.flow.flow
 
 class GameRepository(
@@ -21,6 +22,8 @@ class GameRepository(
         category: Category? = null,
     ) = flow {
         emit(Resource.Loading)
+
+        println("Category $category")
 
         val response = try {
             val response = client.get("$BASE_URL/games") {
@@ -35,6 +38,8 @@ class GameRepository(
                 sortOptions?.platform?.let {
                     parameter("platform", sortOptions.platform.key)
                 }
+            }.also {
+                println(it.request.url)
             }.body<List<SimpleGame>>()
 
             Resource.Success(response)
