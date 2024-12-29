@@ -1,4 +1,4 @@
-rootProject.name = "mmo-finder"
+rootProject.name = "hopi"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

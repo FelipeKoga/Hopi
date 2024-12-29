@@ -21,14 +21,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
-import dev.koga.hopi.Game
+import dev.koga.hopi.model.SimpleGame
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel,
-    onGameClicked: (Game) -> Unit
+    onGameClicked: (SimpleGame) -> Unit
 ) {
     val games by viewModel.games.collectAsStateWithLifecycle()
 
@@ -60,7 +60,7 @@ fun HomeScreen(
 }
 
 @Composable
-fun GameCard(modifier: Modifier = Modifier, game: Game, onClick: () -> Unit) {
+fun GameCard(modifier: Modifier = Modifier, game: SimpleGame, onClick: () -> Unit) {
     Card(modifier = modifier.fillMaxWidth(), onClick = onClick) {
         Row(modifier = Modifier.fillMaxWidth()) {
             AsyncImage(

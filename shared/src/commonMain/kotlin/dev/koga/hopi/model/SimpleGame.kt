@@ -1,10 +1,10 @@
-package dev.koga.hopi
+package dev.koga.hopi.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Game(
+data class SimpleGame(
     @SerialName("id")
     val id: Int,
     @SerialName("title")
