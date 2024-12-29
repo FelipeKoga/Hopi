@@ -13,4 +13,10 @@ data class SimpleGame(
     val description: String,
     @SerialName("thumbnail")
     val thumbnail: String,
+    @SerialName("genre")
+    val genre: String,
+    @SerialName("platform")
+    val platform: String,
+    @SerialName("release_date")
+    val releaseDate: String,
 )

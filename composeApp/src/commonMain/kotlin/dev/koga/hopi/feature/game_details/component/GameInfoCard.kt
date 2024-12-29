@@ -1,4 +1,4 @@
-package dev.koga.hopi.feature.details.component
+package dev.koga.hopi.feature.game_details.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

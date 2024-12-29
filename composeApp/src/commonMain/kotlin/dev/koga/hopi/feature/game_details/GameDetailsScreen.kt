@@ -1,4 +1,4 @@
-package dev.koga.hopi.feature.details
+package dev.koga.hopi.feature.game_details
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.layout.Arrangement
@@ -39,10 +39,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
-import dev.koga.hopi.feature.details.component.GameInfoCard
-import dev.koga.hopi.feature.details.component.ScreenshotsUI
-import dev.koga.hopi.feature.details.component.toList
+import dev.koga.hopi.feature.game_details.component.GameInfoCard
+import dev.koga.hopi.feature.game_details.component.ScreenshotsUI
+import dev.koga.hopi.feature.game_details.component.toList
+import dev.koga.hopi.feature.games.GamesUiState
 import dev.koga.hopi.model.GameDetails
+import dev.koga.hopi.shared_ui.ErrorUI
+import dev.koga.hopi.shared_ui.LoadingUI
 import dev.koga.hopi.util.ext.fullLine
 
 
@@ -51,7 +54,6 @@ fun GameDetailsScreen(
     viewModel: GameDetailsViewModel,
     onBack: () -> Unit,
 ) {
-
     val gameState by viewModel.gameState.collectAsStateWithLifecycle()
 
     Scaffold(
@@ -63,23 +65,12 @@ fun GameDetailsScreen(
             contentKey = { gameState::class }
         ) { target ->
             when (target) {
-                GameDetailsUiState.Loading -> {
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        CircularProgressIndicator(modifier = Modifier.align(alignment = Alignment.Center))
-                    }
-                }
+                GameDetailsUiState.Loading -> LoadingUI()
 
-                GameDetailsUiState.Error -> {
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        Text(
-                            modifier = Modifier.align(alignment = Alignment.Center),
-                            text = "Error!"
-                        )
-                    }
-                }
+                GameDetailsUiState.Error -> ErrorUI(onTryAgain = {})
 
                 is GameDetailsUiState.Success -> {
-                    val game = (gameState as GameDetailsUiState.Success).data
+                    val game = (gameState as GameDetailsUiState.Success).game
                     val info = game.toList()
                     val minimumSystemRequirements = game.minimumSystemRequirements.toList()
 

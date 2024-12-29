@@ -74,6 +74,7 @@ kotlin {
             implementation(libs.coil.compose)
             implementation(libs.coil.core)
             implementation(libs.coil.cache.controls)
+            implementation(libs.composeIcons.tablerIcons)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
