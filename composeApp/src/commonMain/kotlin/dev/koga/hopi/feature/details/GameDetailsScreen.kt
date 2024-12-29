@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import dev.koga.hopi.feature.details.component.GameInfoCard
+import dev.koga.hopi.feature.details.component.ScreenshotsUI
 import dev.koga.hopi.feature.details.component.toList
 import dev.koga.hopi.model.GameDetails
 import dev.koga.hopi.util.ext.fullLine
@@ -105,6 +107,23 @@ fun GameDetailsScreen(
 
                         fullLine {
                             Text(
+                                text = "Screenshots",
+                                style = MaterialTheme.typography.bodyMedium.copy(
+                                    fontWeight = FontWeight.Bold
+                                )
+                            )
+                        }
+
+                        fullLine {
+                            ScreenshotsUI(screenshots = game.screenshots)
+                        }
+
+                        fullLine {
+                            Spacer(modifier = Modifier.height(12.dp))
+                        }
+
+                        fullLine {
+                            Text(
                                 text = "Minimum System Requirements",
                                 style = MaterialTheme.typography.bodyMedium.copy(
                                     fontWeight = FontWeight.Bold
@@ -138,11 +157,13 @@ fun GameHeaderUI(game: GameDetails) {
     Column {
         AsyncImage(
             model = game.thumbnail,
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
             modifier = Modifier
-                .clip(RoundedCornerShape(12.dp))
-                .fillMaxWidth(),
-            contentDescription = "game image",
-            contentScale = ContentScale.Crop
+                .fillMaxWidth()
+                .defaultMinSize(minHeight = 196.dp)
+                .clip(RoundedCornerShape(12.dp)),
+            clipToBounds = false,
         )
 
         Spacer(modifier = Modifier.height(24.dp))
