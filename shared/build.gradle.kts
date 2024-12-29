@@ -1,12 +1,17 @@
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("com.codingfeline.buildkonfig")
     kotlin("plugin.serialization") version "2.1.0"
 }
+
+val envProperties = rootProject.envProperties()
 
 kotlin {
     androidTarget {
@@ -73,6 +78,18 @@ kotlin {
 }
 
 
+buildkonfig {
+    packageName = "dev.koga.hopi.shared"
+
+    defaultConfigs {
+        buildConfigField(
+            STRING,
+            "RAPID_API_KEY",
+            envProperties.getProperty("RAPID_API_KEY")
+        )
+    }
+}
+
 android {
     namespace = "dev.koga.hopi.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -83,4 +100,16 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+}
+
+fun Project.envProperties(): Properties {
+    val properties = Properties()
+
+    if (file("env.properties").exists()) {
+        properties.load(
+            file("env.properties").inputStream(),
+        )
+    }
+
+    return properties
 }
