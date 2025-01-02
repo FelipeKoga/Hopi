@@ -1,15 +1,13 @@
-package dev.koga.hopi.feature.category_games
+package dev.koga.hopi.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.toRoute
-import dev.koga.hopi.Route
 import dev.koga.hopi.model.Category
 import dev.koga.hopi.model.Resource
+import dev.koga.hopi.model.SimpleGame
 import dev.koga.hopi.model.SortOptions
 import dev.koga.hopi.repository.GameRepository
-import dev.koga.hopi.util.ext.WhileViewSubscribed
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -18,15 +16,18 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
+data class CategoryGamesUiState(
+    val category: Category,
+    val gamesUiState: Resource<List<SimpleGame>>,
+    val sortOptions: SortOptions = SortOptions.empty,
+)
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CategoryGamesViewModel(
-    savedStateHandle: SavedStateHandle,
+    categoryKey: String,
     repository: GameRepository
 ) : ViewModel() {
-
-    private val key = savedStateHandle.toRoute<Route.CategoryGames>().categoryKey
-    private val category = Category.all.first { category -> category.key == key }
+    private val category = Category.all.first { it.key == categoryKey }
     private val sortOptions = MutableStateFlow(SortOptions(platform = null, order = null))
     private val gamesResource = sortOptions.flatMapLatest {
         repository.getAll(

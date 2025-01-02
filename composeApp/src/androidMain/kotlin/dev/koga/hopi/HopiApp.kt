@@ -1,13 +1,13 @@
 package dev.koga.hopi
 
 import android.app.Application
-import dev.koga.hopi.di.viewModelModule
+import dev.koga.hopi.di.KoinInit
 
 class HopiApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        initKoin(viewModelModule)
+        KoinInit.init()
     }
 }

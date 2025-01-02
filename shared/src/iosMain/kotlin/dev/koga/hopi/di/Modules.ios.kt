@@ -1,9 +1,9 @@
-package dev.koga.hopi
+package dev.koga.hopi.di
 
-import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.darwin.Darwin
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
 actual val platformModule: Module = module {
-    single { CIO.create() }
+    single { Darwin.create() }
 }

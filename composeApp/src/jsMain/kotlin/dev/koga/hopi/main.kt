@@ -2,11 +2,11 @@ package dev.koga.hopi
 
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.CanvasBasedWindow
-import dev.koga.hopi.di.viewModelModule
+import dev.koga.hopi.di.KoinInit
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    initKoin(module = viewModelModule)
+    KoinInit.init()
 
     CanvasBasedWindow(
         title = "Hopi",

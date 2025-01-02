@@ -40,6 +40,7 @@ import dev.koga.hopi.model.SimpleGame
 import dev.koga.hopi.shared_ui.ErrorUI
 import dev.koga.hopi.shared_ui.LoadingUI
 import dev.koga.hopi.shared_ui.SortOptionsBottomSheet
+import dev.koga.hopi.viewmodel.CategoryGamesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -137,13 +138,13 @@ fun CategoryGamesScreen(
             when (uiState.gamesUiState) {
                 Resource.Error -> item {
                     ErrorUI(
-                        modifier = Modifier.fillParentMaxHeight(),
+                        modifier = Modifier.fillParentMaxSize(),
                         onTryAgain = {}
                     )
                 }
 
                 Resource.Loading -> item {
-                    LoadingUI(modifier = Modifier.fillParentMaxHeight())
+                    LoadingUI(modifier = Modifier.fillParentMaxSize())
                 }
 
                 is Resource.Success -> items(

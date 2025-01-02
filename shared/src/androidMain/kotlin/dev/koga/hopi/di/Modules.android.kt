@@ -1,4 +1,4 @@
-package dev.koga.hopi
+package dev.koga.hopi.di
 
 import io.ktor.client.engine.cio.CIO
 import org.koin.core.module.Module

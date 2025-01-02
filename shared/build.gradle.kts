@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("com.codingfeline.buildkonfig")
     kotlin("plugin.serialization") version "2.1.0"
+    id("co.touchlab.skie") version "0.10.0"
 }
 
 val envProperties = rootProject.envProperties()
@@ -60,7 +61,12 @@ kotlin {
             implementation(libs.ktor.client.json)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.koin.core)
+            implementation(libs.koin.compose.viewmodel)
+
             implementation(libs.kotlinx.serialization)
+
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.androidx.lifecycle.runtime.compose)
         }
 
         androidMain.dependencies {
@@ -68,7 +74,7 @@ kotlin {
         }
 
         iosMain.dependencies {
-            implementation(libs.ktor.cio)
+            implementation(libs.ktor.darwin)
         }
 
         wasmJsMain.dependencies {
@@ -77,6 +83,11 @@ kotlin {
     }
 }
 
+skie {
+    features {
+        enableSwiftUIObservingPreview = true
+    }
+}
 
 buildkonfig {
     packageName = "dev.koga.hopi.shared"

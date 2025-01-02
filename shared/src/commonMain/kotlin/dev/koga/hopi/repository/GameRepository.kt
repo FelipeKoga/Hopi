@@ -1,6 +1,6 @@
 package dev.koga.hopi.repository
 
-import dev.koga.hopi.BASE_URL
+import dev.koga.hopi.di.BASE_URL
 import dev.koga.hopi.model.Category
 import dev.koga.hopi.model.GameDetails
 import dev.koga.hopi.model.Resource
@@ -36,8 +36,6 @@ class GameRepository(
                 sortOptions?.platform?.let {
                     parameter("platform", sortOptions.platform.key)
                 }
-            }.also {
-                println(it.request.url)
             }.body<List<SimpleGame>>()
 
             Resource.Success(response)
