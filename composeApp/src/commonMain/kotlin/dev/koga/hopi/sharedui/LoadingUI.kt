@@ -1,4 +1,4 @@
-package dev.koga.hopi.shared_ui
+package dev.koga.hopi.sharedui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.CircularProgressIndicator

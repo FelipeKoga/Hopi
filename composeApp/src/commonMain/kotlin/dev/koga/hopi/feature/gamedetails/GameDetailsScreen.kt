@@ -1,4 +1,4 @@
-package dev.koga.hopi.feature.game_details
+package dev.koga.hopi.feature.gamedetails
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.layout.Arrangement
@@ -43,12 +43,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
-import dev.koga.hopi.feature.game_details.component.GameInfoCard
-import dev.koga.hopi.feature.game_details.component.ScreenshotsUI
-import dev.koga.hopi.feature.game_details.component.toList
+import dev.koga.hopi.feature.gamedetails.component.GameInfoCard
+import dev.koga.hopi.feature.gamedetails.component.ScreenshotsUI
+import dev.koga.hopi.feature.gamedetails.component.toList
 import dev.koga.hopi.model.GameDetails
-import dev.koga.hopi.shared_ui.ErrorUI
-import dev.koga.hopi.shared_ui.LoadingUI
+import dev.koga.hopi.sharedui.ErrorUI
+import dev.koga.hopi.sharedui.LoadingUI
 import dev.koga.hopi.util.ext.fullLine
 import dev.koga.hopi.util.ext.zero
 import dev.koga.hopi.viewmodel.GameDetailsUiState

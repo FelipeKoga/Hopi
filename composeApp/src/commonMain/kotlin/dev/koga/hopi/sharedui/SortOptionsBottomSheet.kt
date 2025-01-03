@@ -1,4 +1,4 @@
-package dev.koga.hopi.shared_ui
+package dev.koga.hopi.sharedui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

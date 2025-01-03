@@ -1,4 +1,4 @@
-package dev.koga.hopi.feature.category_games
+package dev.koga.hopi.feature.categorygames
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -37,9 +37,9 @@ import dev.koga.hopi.designsystem.components.HopiAssistChip
 import dev.koga.hopi.feature.games.components.GameCard
 import dev.koga.hopi.model.Resource
 import dev.koga.hopi.model.SimpleGame
-import dev.koga.hopi.shared_ui.ErrorUI
-import dev.koga.hopi.shared_ui.LoadingUI
-import dev.koga.hopi.shared_ui.SortOptionsBottomSheet
+import dev.koga.hopi.sharedui.ErrorUI
+import dev.koga.hopi.sharedui.LoadingUI
+import dev.koga.hopi.sharedui.SortOptionsBottomSheet
 import dev.koga.hopi.viewmodel.CategoryGamesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

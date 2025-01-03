@@ -34,14 +34,14 @@ import compose.icons.tablericons.DeviceGamepad
 import compose.icons.tablericons.Filter
 import dev.koga.hopi.designsystem.components.HopiAssistChip
 import dev.koga.hopi.feature.games.bottomsheet.CategoriesBottomSheet
-import dev.koga.hopi.shared_ui.SortOptionsBottomSheet
+import dev.koga.hopi.sharedui.SortOptionsBottomSheet
 import dev.koga.hopi.feature.games.components.GameCard
 import dev.koga.hopi.model.Category
 import dev.koga.hopi.model.Resource
 import dev.koga.hopi.model.SimpleGame
 import dev.koga.hopi.model.SortOptions
-import dev.koga.hopi.shared_ui.ErrorUI
-import dev.koga.hopi.shared_ui.LoadingUI
+import dev.koga.hopi.sharedui.ErrorUI
+import dev.koga.hopi.sharedui.LoadingUI
 import dev.koga.hopi.viewmodel.GamesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
