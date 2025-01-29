@@ -28,7 +28,9 @@ data class GameDetails(
     @SerialName("minimum_system_requirements")
     val minimumSystemRequirements: MinimumSystemRequirements,
     val screenshots: List<Screenshot>
-)
+) {
+    val normalizedDescription = description.replace("<[^>]*>".toRegex(), "")
+}
 
 @Serializable
 data class Screenshot(

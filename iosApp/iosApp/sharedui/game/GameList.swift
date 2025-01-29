@@ -16,6 +16,7 @@ struct GamesListContent: View {
     let showCategoriesButton: Bool
     let onShowCategoriesSheet: () -> Void
     let onShowSortOptionsSheet: () -> Void
+    let onGameDetails: (SimpleGame) -> Void
     
     var body: some View {
         VStack {
@@ -57,7 +58,7 @@ struct GamesListContent: View {
             
             LazyVStack(spacing: 16) {
                 ForEach(games, id: \.id) { game in
-                    GameCard(game: game)
+                    GameCard(game: game, onClick: onGameDetails)
                 }
             }
             .padding()

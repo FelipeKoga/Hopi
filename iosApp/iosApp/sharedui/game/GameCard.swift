@@ -10,6 +10,7 @@ import Shared
 
 struct GameCard: View {
     let game: SimpleGame
+    let onClick: (SimpleGame) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -45,6 +46,9 @@ struct GameCard: View {
         .background(Color.surfaceDark)
         .cornerRadius(12)
         .shadow(radius: 4)
+        .onTapGesture {
+            onClick(game)
+        }
     }
 }
 

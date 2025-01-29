@@ -217,7 +217,7 @@ fun GameHeaderUI(game: GameDetails) {
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = game.description.replace("<[^>]*>".toRegex(), ""),
+            text = game.description,
             style = MaterialTheme.typography.bodyMedium.copy(
                 fontWeight = FontWeight.Normal,
                 color = MaterialTheme.colorScheme.onSurface

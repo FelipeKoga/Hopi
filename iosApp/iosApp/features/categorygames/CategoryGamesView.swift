@@ -11,6 +11,17 @@ import Shared
 struct CategoryGamesView: View {
     @Environment(\.dismiss) var dismiss
     @State var viewModel: CategoryGamesViewModel
+    @State private var activeSheet: ActiveSheet? = nil
+
+    enum ActiveSheet: Identifiable {
+        case gameDetails(SimpleGame)
+        
+        var id: Int {
+            switch self {
+            case .gameDetails: return 1
+            }
+        }
+    }
     
     init(category: Category) {
         self.viewModel = get(CategoryGamesViewModel.self, parameter: category.key)
@@ -23,9 +34,8 @@ struct CategoryGamesView: View {
                     Observing(viewModel.uiState) { uiState in
                         GamesContent(
                             uiState: uiState,
-                            onShowSortOptionsSheet: {
-                            
-                            }
+                            onShowSortOptionsSheet: {},
+                            onShowGameDetailsSheet: { game in activeSheet = .gameDetails(game) }
                         )
                     }
                 }
@@ -40,13 +50,20 @@ struct CategoryGamesView: View {
                 }
             }
         }
+        .sheet(item: $activeSheet) { sheet in
+            switch sheet {
+            case .gameDetails(let game):
+                GameDetailsView(gameId: game.id)
+            }
+        }
     }
 }
 
 private struct GamesContent: View {
     let uiState: CategoryGamesUiState
     let onShowSortOptionsSheet: () -> Void
-    
+    let onShowGameDetailsSheet: (SimpleGame) -> Void
+
     var body: some View {
         switch onEnum(of: uiState.gamesUiState) {
         case .loading:
@@ -60,7 +77,8 @@ private struct GamesContent: View {
                     sortOptions: uiState.sortOptions,
                     showCategoriesButton: false,
                     onShowCategoriesSheet: {},
-                    onShowSortOptionsSheet: {}
+                    onShowSortOptionsSheet: {},
+                    onGameDetails: onShowGameDetailsSheet
                 )
 
             }

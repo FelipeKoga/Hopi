@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,30 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		D35040EE2D2B3E2A00EC23C1 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040E12D2B3E2A00EC23C1 /* GamesView.swift */; };
+		D35040EF2D2B3E2A00EC23C1 /* CategoriesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040DD2D2B3E2A00EC23C1 /* CategoriesSheet.swift */; };
+		D35040F02D2B3E2A00EC23C1 /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040E82D2B3E2A00EC23C1 /* GameCard.swift */; };
+		D35040F12D2B3E2A00EC23C1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040E62D2B3E2A00EC23C1 /* Category.swift */; };
+		D35040F22D2B3E2A00EC23C1 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040DB2D2B3E2A00EC23C1 /* DI.swift */; };
+		D35040F32D2B3E2A00EC23C1 /* CategoryGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040DF2D2B3E2A00EC23C1 /* CategoryGamesView.swift */; };
+		D35040F42D2B3E2A00EC23C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040EC2D2B3E2A00EC23C1 /* Color.swift */; };
+		D35040F52D2B3E2A00EC23C1 /* SortOptionsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040E32D2B3E2A00EC23C1 /* SortOptionsSheet.swift */; };
+		D35040F62D2B3E2A00EC23C1 /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35040E92D2B3E2A00EC23C1 /* GameList.swift */; };
+		D3A64D402D49A169009D7BD7 /* GamesViewModel.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D2F2D49A169009D7BD7 /* GamesViewModel.kt */; };
+		D3A64D412D49A169009D7BD7 /* KoinInit.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D222D49A169009D7BD7 /* KoinInit.kt */; };
+		D3A64D422D49A169009D7BD7 /* Modules.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D232D49A169009D7BD7 /* Modules.kt */; };
+		D3A64D432D49A169009D7BD7 /* SharingStarted.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D302D49A169009D7BD7 /* SharingStarted.kt */; };
+		D3A64D442D49A169009D7BD7 /* Modules.ios.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D392D49A169009D7BD7 /* Modules.ios.kt */; };
+		D3A64D452D49A169009D7BD7 /* CategoryGamesViewModel.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D2D2D49A169009D7BD7 /* CategoryGamesViewModel.kt */; };
+		D3A64D462D49A169009D7BD7 /* GameDetailsViewModel.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D2E2D49A169009D7BD7 /* GameDetailsViewModel.kt */; };
+		D3A64D472D49A169009D7BD7 /* SimpleGame.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D282D49A169009D7BD7 /* SimpleGame.kt */; };
+		D3A64D482D49A169009D7BD7 /* Category.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D252D49A169009D7BD7 /* Category.kt */; };
+		D3A64D492D49A169009D7BD7 /* Resource.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D272D49A169009D7BD7 /* Resource.kt */; };
+		D3A64D4A2D49A169009D7BD7 /* AnalyticsLogger.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D322D49A169009D7BD7 /* AnalyticsLogger.kt */; };
+		D3A64D4B2D49A169009D7BD7 /* KoinHelper.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D382D49A169009D7BD7 /* KoinHelper.kt */; };
+		D3A64D4C2D49A169009D7BD7 /* GameRepository.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D2B2D49A169009D7BD7 /* GameRepository.kt */; };
+		D3A64D4D2D49A169009D7BD7 /* GameDetails.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D262D49A169009D7BD7 /* GameDetails.kt */; };
+		D3A64D4E2D49A169009D7BD7 /* SortOptions.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D292D49A169009D7BD7 /* SortOptions.kt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +45,35 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D35040DB2D2B3E2A00EC23C1 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
+		D35040DD2D2B3E2A00EC23C1 /* CategoriesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSheet.swift; sourceTree = "<group>"; };
+		D35040DF2D2B3E2A00EC23C1 /* CategoryGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGamesView.swift; sourceTree = "<group>"; };
+		D35040E12D2B3E2A00EC23C1 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
+		D35040E32D2B3E2A00EC23C1 /* SortOptionsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptionsSheet.swift; sourceTree = "<group>"; };
+		D35040E62D2B3E2A00EC23C1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		D35040E82D2B3E2A00EC23C1 /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
+		D35040E92D2B3E2A00EC23C1 /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
+		D35040EC2D2B3E2A00EC23C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D3A64D222D49A169009D7BD7 /* KoinInit.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = KoinInit.kt; sourceTree = "<group>"; };
+		D3A64D232D49A169009D7BD7 /* Modules.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modules.kt; sourceTree = "<group>"; };
+		D3A64D252D49A169009D7BD7 /* Category.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Category.kt; sourceTree = "<group>"; };
+		D3A64D262D49A169009D7BD7 /* GameDetails.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GameDetails.kt; sourceTree = "<group>"; };
+		D3A64D272D49A169009D7BD7 /* Resource.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Resource.kt; sourceTree = "<group>"; };
+		D3A64D282D49A169009D7BD7 /* SimpleGame.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleGame.kt; sourceTree = "<group>"; };
+		D3A64D292D49A169009D7BD7 /* SortOptions.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SortOptions.kt; sourceTree = "<group>"; };
+		D3A64D2B2D49A169009D7BD7 /* GameRepository.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GameRepository.kt; sourceTree = "<group>"; };
+		D3A64D2D2D49A169009D7BD7 /* CategoryGamesViewModel.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CategoryGamesViewModel.kt; sourceTree = "<group>"; };
+		D3A64D2E2D49A169009D7BD7 /* GameDetailsViewModel.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GameDetailsViewModel.kt; sourceTree = "<group>"; };
+		D3A64D2F2D49A169009D7BD7 /* GamesViewModel.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GamesViewModel.kt; sourceTree = "<group>"; };
+		D3A64D302D49A169009D7BD7 /* SharingStarted.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SharingStarted.kt; sourceTree = "<group>"; };
+		D3A64D322D49A169009D7BD7 /* AnalyticsLogger.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnalyticsLogger.kt; sourceTree = "<group>"; };
+		D3A64D382D49A169009D7BD7 /* KoinHelper.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = KoinHelper.kt; sourceTree = "<group>"; };
+		D3A64D392D49A169009D7BD7 /* Modules.ios.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modules.ios.kt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D3A64D4F2D49A1D8009D7BD7 /* gamedetails */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = gamedetails; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B92378962B6B1156000C7307 /* Frameworks */ = {
@@ -56,6 +108,7 @@
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				42799AB246E5F90AF97AA0EF /* Frameworks */,
+				D3A64D212D49A144009D7BD7 /* Kotlin shared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +123,11 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				D35040DC2D2B3E2A00EC23C1 /* di */,
+				D35040E52D2B3E2A00EC23C1 /* features */,
+				D35040E72D2B3E2A00EC23C1 /* model */,
+				D35040EB2D2B3E2A00EC23C1 /* sharedui */,
+				D35040ED2D2B3E2A00EC23C1 /* utils */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -87,6 +145,235 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		D35040DC2D2B3E2A00EC23C1 /* di */ = {
+			isa = PBXGroup;
+			children = (
+				D35040DB2D2B3E2A00EC23C1 /* DI.swift */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
+		D35040DE2D2B3E2A00EC23C1 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				D35040DD2D2B3E2A00EC23C1 /* CategoriesSheet.swift */,
+			);
+			path = categories;
+			sourceTree = "<group>";
+		};
+		D35040E02D2B3E2A00EC23C1 /* categorygames */ = {
+			isa = PBXGroup;
+			children = (
+				D35040DF2D2B3E2A00EC23C1 /* CategoryGamesView.swift */,
+			);
+			path = categorygames;
+			sourceTree = "<group>";
+		};
+		D35040E22D2B3E2A00EC23C1 /* games */ = {
+			isa = PBXGroup;
+			children = (
+				D35040E12D2B3E2A00EC23C1 /* GamesView.swift */,
+			);
+			path = games;
+			sourceTree = "<group>";
+		};
+		D35040E42D2B3E2A00EC23C1 /* sortoptions */ = {
+			isa = PBXGroup;
+			children = (
+				D35040E32D2B3E2A00EC23C1 /* SortOptionsSheet.swift */,
+			);
+			path = sortoptions;
+			sourceTree = "<group>";
+		};
+		D35040E52D2B3E2A00EC23C1 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D4F2D49A1D8009D7BD7 /* gamedetails */,
+				D35040DE2D2B3E2A00EC23C1 /* categories */,
+				D35040E02D2B3E2A00EC23C1 /* categorygames */,
+				D35040E22D2B3E2A00EC23C1 /* games */,
+				D35040E42D2B3E2A00EC23C1 /* sortoptions */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		D35040E72D2B3E2A00EC23C1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D35040E62D2B3E2A00EC23C1 /* Category.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D35040EA2D2B3E2A00EC23C1 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				D35040E82D2B3E2A00EC23C1 /* GameCard.swift */,
+				D35040E92D2B3E2A00EC23C1 /* GameList.swift */,
+			);
+			path = game;
+			sourceTree = "<group>";
+		};
+		D35040EB2D2B3E2A00EC23C1 /* sharedui */ = {
+			isa = PBXGroup;
+			children = (
+				D35040EA2D2B3E2A00EC23C1 /* game */,
+			);
+			path = sharedui;
+			sourceTree = "<group>";
+		};
+		D35040ED2D2B3E2A00EC23C1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D35040EC2D2B3E2A00EC23C1 /* Color.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		D3A64D212D49A144009D7BD7 /* Kotlin shared */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D372D49A169009D7BD7 /* commonMain */,
+				D3A64D3F2D49A169009D7BD7 /* iosMain */,
+			);
+			path = "Kotlin shared";
+			sourceTree = "<group>";
+		};
+		D3A64D242D49A169009D7BD7 /* di */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D222D49A169009D7BD7 /* KoinInit.kt */,
+				D3A64D232D49A169009D7BD7 /* Modules.kt */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
+		D3A64D2A2D49A169009D7BD7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D252D49A169009D7BD7 /* Category.kt */,
+				D3A64D262D49A169009D7BD7 /* GameDetails.kt */,
+				D3A64D272D49A169009D7BD7 /* Resource.kt */,
+				D3A64D282D49A169009D7BD7 /* SimpleGame.kt */,
+				D3A64D292D49A169009D7BD7 /* SortOptions.kt */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D3A64D2C2D49A169009D7BD7 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D2B2D49A169009D7BD7 /* GameRepository.kt */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		D3A64D312D49A169009D7BD7 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D2D2D49A169009D7BD7 /* CategoryGamesViewModel.kt */,
+				D3A64D2E2D49A169009D7BD7 /* GameDetailsViewModel.kt */,
+				D3A64D2F2D49A169009D7BD7 /* GamesViewModel.kt */,
+				D3A64D302D49A169009D7BD7 /* SharingStarted.kt */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		D3A64D332D49A169009D7BD7 /* hopi */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D242D49A169009D7BD7 /* di */,
+				D3A64D2A2D49A169009D7BD7 /* model */,
+				D3A64D2C2D49A169009D7BD7 /* repository */,
+				D3A64D312D49A169009D7BD7 /* viewmodel */,
+				D3A64D322D49A169009D7BD7 /* AnalyticsLogger.kt */,
+			);
+			path = hopi;
+			sourceTree = "<group>";
+		};
+		D3A64D342D49A169009D7BD7 /* koga */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D332D49A169009D7BD7 /* hopi */,
+			);
+			path = koga;
+			sourceTree = "<group>";
+		};
+		D3A64D352D49A169009D7BD7 /* dev */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D342D49A169009D7BD7 /* koga */,
+			);
+			path = dev;
+			sourceTree = "<group>";
+		};
+		D3A64D362D49A169009D7BD7 /* kotlin */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D352D49A169009D7BD7 /* dev */,
+			);
+			path = kotlin;
+			sourceTree = "<group>";
+		};
+		D3A64D372D49A169009D7BD7 /* commonMain */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D362D49A169009D7BD7 /* kotlin */,
+			);
+			name = commonMain;
+			path = ../shared/src/commonMain;
+			sourceTree = SOURCE_ROOT;
+		};
+		D3A64D3A2D49A169009D7BD7 /* di */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D382D49A169009D7BD7 /* KoinHelper.kt */,
+				D3A64D392D49A169009D7BD7 /* Modules.ios.kt */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
+		D3A64D3B2D49A169009D7BD7 /* hopi */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D3A2D49A169009D7BD7 /* di */,
+			);
+			path = hopi;
+			sourceTree = "<group>";
+		};
+		D3A64D3C2D49A169009D7BD7 /* koga */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D3B2D49A169009D7BD7 /* hopi */,
+			);
+			path = koga;
+			sourceTree = "<group>";
+		};
+		D3A64D3D2D49A169009D7BD7 /* dev */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D3C2D49A169009D7BD7 /* koga */,
+			);
+			path = dev;
+			sourceTree = "<group>";
+		};
+		D3A64D3E2D49A169009D7BD7 /* kotlin */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D3D2D49A169009D7BD7 /* dev */,
+			);
+			path = kotlin;
+			sourceTree = "<group>";
+		};
+		D3A64D3F2D49A169009D7BD7 /* iosMain */ = {
+			isa = PBXGroup;
+			children = (
+				D3A64D3E2D49A169009D7BD7 /* kotlin */,
+			);
+			name = iosMain;
+			path = ../shared/src/iosMain;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +389,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D3A64D4F2D49A1D8009D7BD7 /* gamedetails */,
 			);
 			name = iosApp;
 			packageProductDependencies = (
@@ -151,6 +441,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A64D402D49A169009D7BD7 /* GamesViewModel.kt in Resources */,
+				D3A64D412D49A169009D7BD7 /* KoinInit.kt in Resources */,
+				D3A64D422D49A169009D7BD7 /* Modules.kt in Resources */,
+				D3A64D432D49A169009D7BD7 /* SharingStarted.kt in Resources */,
+				D3A64D442D49A169009D7BD7 /* Modules.ios.kt in Resources */,
+				D3A64D452D49A169009D7BD7 /* CategoryGamesViewModel.kt in Resources */,
+				D3A64D462D49A169009D7BD7 /* GameDetailsViewModel.kt in Resources */,
+				D3A64D472D49A169009D7BD7 /* SimpleGame.kt in Resources */,
+				D3A64D482D49A169009D7BD7 /* Category.kt in Resources */,
+				D3A64D492D49A169009D7BD7 /* Resource.kt in Resources */,
+				D3A64D4A2D49A169009D7BD7 /* AnalyticsLogger.kt in Resources */,
+				D3A64D4B2D49A169009D7BD7 /* KoinHelper.kt in Resources */,
+				D3A64D4C2D49A169009D7BD7 /* GameRepository.kt in Resources */,
+				D3A64D4D2D49A169009D7BD7 /* GameDetails.kt in Resources */,
+				D3A64D4E2D49A169009D7BD7 /* SortOptions.kt in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
@@ -186,6 +491,15 @@
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				D35040EE2D2B3E2A00EC23C1 /* GamesView.swift in Sources */,
+				D35040EF2D2B3E2A00EC23C1 /* CategoriesSheet.swift in Sources */,
+				D35040F02D2B3E2A00EC23C1 /* GameCard.swift in Sources */,
+				D35040F12D2B3E2A00EC23C1 /* Category.swift in Sources */,
+				D35040F22D2B3E2A00EC23C1 /* DI.swift in Sources */,
+				D35040F32D2B3E2A00EC23C1 /* CategoryGamesView.swift in Sources */,
+				D35040F42D2B3E2A00EC23C1 /* Color.swift in Sources */,
+				D35040F52D2B3E2A00EC23C1 /* SortOptionsSheet.swift in Sources */,
+				D35040F62D2B3E2A00EC23C1 /* GameList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

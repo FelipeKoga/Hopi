@@ -21,7 +21,9 @@ const val BASE_URL = "https://mmo-games.p.rapidapi.com"
 
 val viewModelModule = module {
     viewModelOf(::GamesViewModel)
-    viewModelOf(::GameDetailsViewModel)
+    viewModel { params ->
+        GameDetailsViewModel(params.get(), get())
+    }
     viewModel { params ->
         CategoryGamesViewModel(params.get(), get())
     }

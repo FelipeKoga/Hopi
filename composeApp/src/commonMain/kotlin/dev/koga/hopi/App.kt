@@ -67,9 +67,12 @@ fun App() {
                 )
             }
 
-            composable<Route.GameDetails> {
+            composable<Route.GameDetails> { backStackEntry ->
+                val gameId = backStackEntry.toRoute<Route.GameDetails>().id
                 GameDetailsScreen(
-                    viewModel = koinNavViewModel(),
+                    viewModel = koinNavViewModel(
+                        parameters = { parametersOf(gameId) }
+                    ),
                     onBack = navController::popBackStack
                 )
             }

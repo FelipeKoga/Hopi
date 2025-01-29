@@ -2,7 +2,6 @@
 
 package dev.koga.hopi.viewmodel
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.koga.hopi.repository.GameRepository
@@ -20,13 +19,11 @@ sealed interface GameDetailsUiState {
 }
 
 class GameDetailsViewModel(
-    savedStateHandle: SavedStateHandle,
+    gameId: Int,
     repository: GameRepository,
 ) : ViewModel() {
 
-    private val id = savedStateHandle.get<Int>("id")!!
-
-    val gameState = repository.getById(id = id).mapLatest {
+    val gameState = repository.getById(id = gameId).mapLatest {
         when (it) {
             is Resource.Success -> GameDetailsUiState.Success(it.data)
             Resource.Error -> GameDetailsUiState.Error
@@ -37,5 +34,4 @@ class GameDetailsViewModel(
         started = SharingStarted.WhileViewSubscribed,
         initialValue = GameDetailsUiState.Loading
     )
-
 }

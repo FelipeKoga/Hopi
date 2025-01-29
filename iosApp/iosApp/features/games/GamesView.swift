@@ -17,12 +17,14 @@ struct GamesView : View {
         case categories
         case sortOptions
         case categoryGames(Category)
+        case gameDetails(SimpleGame)
         
         var id: Int {
             switch self {
             case .categories: return 0
             case .sortOptions: return 1
             case .categoryGames: return 2
+            case .gameDetails: return 3
             }
         }
     }
@@ -34,8 +36,9 @@ struct GamesView : View {
                     Observing(viewModel.uiState) { uiState in
                         GamesContent(
                             uiState: uiState,
-                            onShowCategoriesSheet: { activeSheet = .categories },
-                            onShowSortOptionsSheet: { activeSheet = .sortOptions }
+                            onShowCategoriesSheet: { activeSheet = .categories},
+                            onShowSortOptionsSheet: {activeSheet = .sortOptions},
+                            onShowGameDetailsSheet: { game in activeSheet = .gameDetails(game)}
                         )
                     }
                 }
@@ -60,6 +63,9 @@ struct GamesView : View {
                     CategoryGamesView(
                         category: category
                     )
+                    
+                case .gameDetails(let game):
+                    GameDetailsView(gameId: game.id)
                 }
             }
         }
@@ -70,6 +76,7 @@ private struct GamesContent: View {
     let uiState: GamesUiState
     let onShowCategoriesSheet: () -> Void
     let onShowSortOptionsSheet: () -> Void
+    let onShowGameDetailsSheet: (SimpleGame) -> Void
     
     var body: some View {
         switch onEnum(of: uiState.data) {
@@ -84,7 +91,8 @@ private struct GamesContent: View {
                     sortOptions: uiState.sortOptions,
                     showCategoriesButton: true,
                     onShowCategoriesSheet: onShowCategoriesSheet,
-                    onShowSortOptionsSheet: onShowSortOptionsSheet
+                    onShowSortOptionsSheet: onShowSortOptionsSheet,
+                    onGameDetails: onShowGameDetailsSheet
                 )
             }
         case .error:
