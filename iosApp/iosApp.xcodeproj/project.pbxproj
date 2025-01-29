@@ -30,7 +30,6 @@
 		D3A64D472D49A169009D7BD7 /* SimpleGame.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D282D49A169009D7BD7 /* SimpleGame.kt */; };
 		D3A64D482D49A169009D7BD7 /* Category.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D252D49A169009D7BD7 /* Category.kt */; };
 		D3A64D492D49A169009D7BD7 /* Resource.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D272D49A169009D7BD7 /* Resource.kt */; };
-		D3A64D4A2D49A169009D7BD7 /* AnalyticsLogger.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D322D49A169009D7BD7 /* AnalyticsLogger.kt */; };
 		D3A64D4B2D49A169009D7BD7 /* KoinHelper.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D382D49A169009D7BD7 /* KoinHelper.kt */; };
 		D3A64D4C2D49A169009D7BD7 /* GameRepository.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D2B2D49A169009D7BD7 /* GameRepository.kt */; };
 		D3A64D4D2D49A169009D7BD7 /* GameDetails.kt in Resources */ = {isa = PBXBuildFile; fileRef = D3A64D262D49A169009D7BD7 /* GameDetails.kt */; };
@@ -66,13 +65,13 @@
 		D3A64D2E2D49A169009D7BD7 /* GameDetailsViewModel.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GameDetailsViewModel.kt; sourceTree = "<group>"; };
 		D3A64D2F2D49A169009D7BD7 /* GamesViewModel.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GamesViewModel.kt; sourceTree = "<group>"; };
 		D3A64D302D49A169009D7BD7 /* SharingStarted.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SharingStarted.kt; sourceTree = "<group>"; };
-		D3A64D322D49A169009D7BD7 /* AnalyticsLogger.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnalyticsLogger.kt; sourceTree = "<group>"; };
 		D3A64D382D49A169009D7BD7 /* KoinHelper.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = KoinHelper.kt; sourceTree = "<group>"; };
 		D3A64D392D49A169009D7BD7 /* Modules.ios.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modules.ios.kt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D3A64D4F2D49A1D8009D7BD7 /* gamedetails */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = gamedetails; sourceTree = "<group>"; };
+		D3A64D562D49AE1A009D7BD7 /* analytics */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = analytics; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +187,7 @@
 		D35040E52D2B3E2A00EC23C1 /* features */ = {
 			isa = PBXGroup;
 			children = (
+				D3A64D562D49AE1A009D7BD7 /* analytics */,
 				D3A64D4F2D49A1D8009D7BD7 /* gamedetails */,
 				D35040DE2D2B3E2A00EC23C1 /* categories */,
 				D35040E02D2B3E2A00EC23C1 /* categorygames */,
@@ -286,7 +286,6 @@
 				D3A64D2A2D49A169009D7BD7 /* model */,
 				D3A64D2C2D49A169009D7BD7 /* repository */,
 				D3A64D312D49A169009D7BD7 /* viewmodel */,
-				D3A64D322D49A169009D7BD7 /* AnalyticsLogger.kt */,
 			);
 			path = hopi;
 			sourceTree = "<group>";
@@ -392,6 +391,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D3A64D4F2D49A1D8009D7BD7 /* gamedetails */,
+				D3A64D562D49AE1A009D7BD7 /* analytics */,
 			);
 			name = iosApp;
 			packageProductDependencies = (
@@ -451,7 +451,6 @@
 				D3A64D472D49A169009D7BD7 /* SimpleGame.kt in Resources */,
 				D3A64D482D49A169009D7BD7 /* Category.kt in Resources */,
 				D3A64D492D49A169009D7BD7 /* Resource.kt in Resources */,
-				D3A64D4A2D49A169009D7BD7 /* AnalyticsLogger.kt in Resources */,
 				D3A64D4B2D49A169009D7BD7 /* KoinHelper.kt in Resources */,
 				D3A64D4C2D49A169009D7BD7 /* GameRepository.kt in Resources */,
 				D3A64D4D2D49A169009D7BD7 /* GameDetails.kt in Resources */,

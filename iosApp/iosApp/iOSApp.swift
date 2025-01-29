@@ -6,6 +6,7 @@ struct iOSApp: App {
     
     init() {
         KoinInit.shared.doInit()
+        KoinInit.shared.loadNativeModules(analyticsLogger: IOSAnalyticsLogger())
     }
     
     var body: some Scene {
